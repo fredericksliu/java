@@ -1,12 +1,11 @@
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 
-public class LSAT extends JFrame implements ActionListener {
+public class LSAT extends JFrame implements ActionListener, MouseListener{
 
     JLabel Welcome = new JLabel();
     JTextArea userInputText = new JTextArea("", 10, 10);
@@ -15,18 +14,19 @@ public class LSAT extends JFrame implements ActionListener {
     JLabel QuestionType = new JLabel();
     JLabel Creator = new JLabel();
 
+
     public LSAT(){
         JFrame frame = new JFrame();
         Font font = new Font("AppleGothic", Font.BOLD, 14);
 
-        Welcome.setText("Check your LSAT Logic Reasoning Question Type: ");
-        Welcome.setBounds(30,30,400,30);
-        Welcome.setFont(font);
-        
         Font createrfont = new Font("AppleGothic", Font.ITALIC, 10);
         Creator.setText("Created by Frederick Liu, more features to come...");
         Creator.setBounds(130,450,300,20);
         Creator.setFont(createrfont);
+
+        Welcome.setText("Check your LSAT Logic Reasoning Question Type: ");
+        Welcome.setBounds(30,30,400,30);
+        Welcome.setFont(font);
 
         userInputText.setBounds(100,80,300,200);
         userInputText.setBorder(new TitledBorder(new EtchedBorder(), "Type: "));
@@ -35,19 +35,33 @@ public class LSAT extends JFrame implements ActionListener {
         userInputText.setToolTipText("Please enter your LSAT Reason and Argument Question");
         userInputText.setFont(font);
 
-        checkQuestionType.setBounds(100,280,120,30);
+        checkQuestionType.setBounds(100,300,120,30);
         checkQuestionType.addActionListener(this);
         checkQuestionType.setText("Check now!");
-checkQuestionType.setFont(font);
+        checkQuestionType.setFont(font);
+        checkQuestionType.setContentAreaFilled(false);
+        checkQuestionType.setBorder(new LineBorder(Color.BLACK));
+        checkQuestionType.addMouseListener(this);
+
 
         QuestionType.setText("Question Type: ");
-        QuestionType.setBounds(150,320,300,30);
-QuestionType.setFont(font);
+        QuestionType.setBounds(150,350,300,30);
+        QuestionType.setFont(font);
 
         Reset.setText("Reset");
-        Reset.setBounds(250,280,120,30);
+        Reset.setBounds(250,300,120,30);
         Reset.setFont(font);
-
+        Reset.setBorder(new LineBorder(Color.BLACK));
+        Reset.setContentAreaFilled(false);
+        Reset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Reset.setContentAreaFilled(true);
+                Reset.setBackground(Color.lightGray);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Reset.setContentAreaFilled(false);
+            }
+        });
         Reset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,14 +83,13 @@ QuestionType.setFont(font);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-
     }
 
     int i;
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         String UserInputs = userInputText.getText();
         //Array for Key words.
         String[] NecessaryAssump = {"assumption", "depends", "requires", "assumes", "presupposes"};
@@ -181,6 +194,34 @@ QuestionType.setFont(font);
             }
         }
     }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        checkQuestionType.setContentAreaFilled(true);
+        checkQuestionType.setBackground(Color.lightGray);
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        checkQuestionType.setContentAreaFilled(false);
+    }
+
 
     //Output best strategy for each question next...
 }
