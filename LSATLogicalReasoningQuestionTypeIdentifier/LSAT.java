@@ -67,6 +67,10 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Reset.setBackground(Color.GRAY);
             }
+
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Reset.setBackground(Color.lightGray);
+            }
         });
         Reset.addActionListener(new ActionListener() {
             @Override
@@ -213,7 +217,7 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        checkQuestionType.setBackground(Color.lightGray);
     }
 
     @Override
