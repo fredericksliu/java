@@ -13,7 +13,7 @@ public class LSAT extends JFrame implements ActionListener {
     JButton checkQuestionType = new JButton();
     JButton Reset = new JButton();
     JLabel QuestionType = new JLabel();
-
+    JLabel Creator = new JLabel();
 
     public LSAT(){
         JFrame frame = new JFrame();
@@ -22,6 +22,11 @@ public class LSAT extends JFrame implements ActionListener {
         Welcome.setText("Check your LSAT Logic Reasoning Question Type: ");
         Welcome.setBounds(30,30,400,30);
         Welcome.setFont(font);
+        
+        Font createrfont = new Font("AppleGothic", Font.ITALIC, 10);
+        Creator.setText("Created by Frederick Liu, more features to come...");
+        Creator.setBounds(130,450,300,20);
+        Creator.setFont(createrfont);
 
         userInputText.setBounds(100,80,300,200);
         userInputText.setBorder(new TitledBorder(new EtchedBorder(), "Type: "));
@@ -52,7 +57,7 @@ QuestionType.setFont(font);
             }
         });
 
-
+        frame.add(Creator);
         frame.add(Welcome);
         frame.add(checkQuestionType);
         frame.add(userInputText);
