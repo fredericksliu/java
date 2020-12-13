@@ -31,7 +31,7 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
         Welcome.setFont(font);
 
         userInputText.setBounds(100,80,300,200);
-        userInputText.setBorder(new TitledBorder(new EtchedBorder(), "Type: "));
+        userInputText.setBorder(new TitledBorder(new EtchedBorder(), "Question: "));
         userInputText.setLineWrap(true);
         userInputText.setWrapStyleWord(true);
         userInputText.setToolTipText("Please enter your LSAT Reason and Argument Question");
