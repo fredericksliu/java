@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -13,6 +14,7 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
     JButton Reset = new JButton();
     JLabel QuestionType = new JLabel();
     JLabel Creator = new JLabel();
+
 
 
     public LSAT(){
@@ -61,6 +63,10 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Reset.setContentAreaFilled(false);
             }
+
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Reset.setBackground(Color.GRAY);
+            }
         });
         Reset.addActionListener(new ActionListener() {
             @Override
@@ -89,7 +95,7 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         String UserInputs = userInputText.getText();
         //Array for Key words.
         String[] NecessaryAssump = {"assumption", "depends", "requires", "assumes", "presupposes"};
@@ -202,7 +208,7 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        checkQuestionType.setBackground(Color.GRAY);
     }
 
     @Override
