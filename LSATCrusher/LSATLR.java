@@ -6,7 +6,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
 
-public class LSAT extends JFrame implements ActionListener, MouseListener{
+public class LSATLR extends JFrame implements ActionListener, MouseListener{
 
     JLabel Welcome = new JLabel();
     JTextArea userInputText = new JTextArea("", 10, 10);
@@ -17,7 +17,7 @@ public class LSAT extends JFrame implements ActionListener, MouseListener{
     JLabel Approach = new JLabel();
 
 
-    public LSAT(){
+    public LSATLR(){
         JFrame frame = new JFrame();
         Font font = new Font("AppleGothic", Font.BOLD, 14);
 
