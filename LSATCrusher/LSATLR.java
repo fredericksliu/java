@@ -8,18 +8,21 @@ import java.awt.event.*;
 
 public class LSATLR extends JFrame implements ActionListener, MouseListener{
 
-    JLabel Welcome = new JLabel();
-    JTextArea userInputText = new JTextArea("", 10, 10);
-    JButton checkQuestionType = new JButton();
-    JButton Reset = new JButton();
-    JLabel QuestionType = new JLabel();
-    JLabel Creator = new JLabel();
-    JLabel Approach = new JLabel();
+   protected JLabel Welcome = new JLabel();
+    protected  JTextArea userInputText = new JTextArea("", 10, 10);
+    protected JButton checkQuestionType = new JButton();
+    protected JButton Reset = new JButton();
+    protected JLabel QuestionType = new JLabel();
+    protected  JLabel Creator = new JLabel();
+    protected JLabel Approach = new JLabel();
+    protected JButton Exit = new JButton();
 
 
     public LSATLR(){
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Logical Reasoning");
         Font font = new Font("AppleGothic", Font.BOLD, 14);
+
+
 
         Font createrfont = new Font("AppleGothic", Font.ITALIC, 10);
         Creator.setText("Created by Frederick Liu, more features to come...");
@@ -85,6 +88,37 @@ public class LSATLR extends JFrame implements ActionListener, MouseListener{
             }
         });
 
+        Exit.setText("Menu");
+        Exit.setBounds(420,10,50,30);
+        Exit.setFont(font);
+        Exit.setBorder(new LineBorder(Color.BLACK));
+        Exit.setContentAreaFilled(false);
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Exit.setContentAreaFilled(true);
+                Exit.setBackground(Color.lightGray);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Exit.setContentAreaFilled(false);
+            }
+
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Exit.setBackground(Color.GRAY);
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Exit.setBackground(Color.lightGray);
+            }
+        });
+        Exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                new LSATCrusherMain();
+            }
+        });
+
+        frame.add(Exit);
         frame.add(Approach);
         frame.add(Creator);
         frame.add(Welcome);
@@ -244,9 +278,7 @@ public class LSATLR extends JFrame implements ActionListener, MouseListener{
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
+    public void mouseClicked(MouseEvent e) { }
 
     @Override
     public void mousePressed(MouseEvent e) {
